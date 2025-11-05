@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeAssist AI - Real-Time Code Helper</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-code"></i>
+                    <span>CodeAssist AI</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="editor.html">Code Editor</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="documentation.html">Docs</a></li>
+                    <li><a href="snippets.html">Snippets</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <button class="btn-secondary">Sign In</button>
+                    <button class="btn-primary">Get Started</button>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-badge"><i class="fas fa-star"></i> AI-Powered Development</span>
+                    <h1>Code Faster with <span class="gradient-text">AI Intelligence</span></h1>
+                    <p class="hero-description">Experience the future of coding with real-time AI suggestions, intelligent code completion, and instant documentation. Write better code in less time.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-large btn-primary" onclick="window.location.href='editor.html'">
+                            <i class="fas fa-rocket"></i> Try Editor Now
+                        </button>
+                        <button class="btn-large btn-outline">
+                            <i class="fas fa-play-circle"></i> Watch Demo
+                        </button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h3>500K+</h3>
+                            <p>Active Developers</p>
+                        </div>
+                        <div class="stat">
+                            <h3>50M+</h3>
+                            <p>Code Suggestions</p>
+                        </div>
+                        <div class="stat">
+                            <h3>95%</h3>
+                            <p>Accuracy Rate</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="code-window">
+                        <div class="window-header">
+                            <div class="window-buttons">
+                                <span class="btn-close"></span>
+                                <span class="btn-minimize"></span>
+                                <span class="btn-maximize"></span>
+                            </div>
+                            <span class="window-title">main.js</span>
+                        </div>
+                        <div class="code-content">
+                            <pre><code id="demo-code"></code></pre>
+                            <div class="ai-suggestion">
+                                <i class="fas fa-lightbulb"></i>
+                                <span>AI Suggestion: Use async/await for better readability</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Overview -->
+    <section class="features-overview">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Features</span>
+                <h2>Powerful AI-Driven Development</h2>
+                <p>Everything you need to accelerate your coding workflow</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Intelligent Code Completion</h3>
+                    <p>Get context-aware suggestions as you type, powered by advanced machine learning models trained on billions of lines of code.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Real-Time Suggestions</h3>
+                    <p>Instant code recommendations with zero latency. Our AI engine processes your code in milliseconds for seamless development.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3>Multi-Language Support</h3>
+                    <p>Supports 40+ programming languages including JavaScript, Python, Java, C++, Go, Rust, and more with specialized models.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure & Private</h3>
+                    <p>Your code stays private. We use end-to-end encryption and never store your code on our servers permanently.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>AI Chatbot Assistant</h3>
+                    <p>Ask coding questions, get explanations, and receive debugging help from our intelligent chatbot assistant.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3>IDE Integration</h3>
+                    <p>Works seamlessly with VS Code, IntelliJ, Sublime Text, and other popular development environments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Process</span>
+                <h2>How CodeAssist AI Works</h2>
+                <p>Get started in three simple steps</p>
+            </div>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Install Extension</h3>
+                        <p>Download and install CodeAssist AI extension for your favorite IDE in seconds.</p>
+                    </div>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Start Coding</h3>
+                        <p>Begin writing code and watch AI suggestions appear in real-time as you type.</p>
+                    </div>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Accelerate Development</h3>
+                        <p>Accept suggestions with Tab key and code 5x faster with AI assistance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Testimonials</span>
+                <h2>Loved by Developers Worldwide</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"CodeAssist AI has completely transformed my workflow. I'm writing code 3x faster and spending less time on repetitive tasks. It's like having a senior developer sitting next to me!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <span>Senior Full-Stack Developer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The AI suggestions are incredibly accurate and contextually relevant. It understands my coding patterns and helps me maintain consistency across my projects. Absolutely game-changing!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <span>Tech Lead at StartupCo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"As a beginner, this tool has accelerated my learning tremendously. The AI chatbot explains concepts clearly and the code suggestions teach me best practices as I go."</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Emily Rodriguez</h4>
+                            <span>Junior Developer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Code Smarter?</h2>
+                <p>Join thousands of developers who are already accelerating their workflow with CodeAssist AI</p>
+                <div class="cta-buttons">
+                    <button class="btn-large btn-primary" onclick="window.location.href='editor.html'">
+                        Start Coding Now <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="btn-large btn-outline-white">
+                        View Pricing <i class="fas fa-tag"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <!-- Company Info -->
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <i class="fas fa-code"></i>
+                    <span>CodeAssist AI</span>
+                </div>
+                <p>Empowering developers with AI-powered code intelligence. Write better code, faster.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Product Section -->
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
+                    <li><a href="api-reference.html">API Reference</a></li>
+                    <li><a href="changelog.html">Changelog</a></li>
+                </ul>
+            </div>
+
+            <!-- Resources Section -->
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="tutorials.html">Tutorials</a></li>
+                    <li><a href="status.html">Status</a></li>
+                    <li><a href="security.html">Security</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal Section -->
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                    <li><a href="roadmap.html">Roadmap</a></li>
+                    <li><a href="license.html">License</a></li>
+                </ul>
+            </div>
+
+            <!-- Company Section -->
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="press-kit.html">Press Kit</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 CodeAssist AI. All rights reserved.</p>
+            <p>Made with <i class="fas fa-heart"></i> by developers, for developers</p>
+        </div>
+    </div>
+</footer>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget" id="chatbotWidget">
+        <div class="chatbot-header">
+            <div class="chatbot-title">
+                <i class="fas fa-robot"></i>
+                <span>AI Assistant</span>
+            </div>
+            <button class="chatbot-close" id="closeChatbot">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="bot-message">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>Hello! I'm your AI coding assistant. How can I help you today?</p>
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <label for="chatbotInput"></label><input type="text" id="chatbotInput" placeholder="Ask me anything about coding...">
+            <button id="sendMessage">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <button class="chatbot-button" id="openChatbot">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+</body>
+</html>

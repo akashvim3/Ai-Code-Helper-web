@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Snippets Library - CodeAssist AI</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-code"></i>
+                    <span>CodeAssist AI</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="editor.html">Code Editor</a></li>
+                    <li><a href="snippets.html" class="active">Snippets</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="analytics.html">Analytic</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="btn-secondary">Sign In</button>
+                    <button class="btn-primary">Get Started</button>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Snippets Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <span class="hero-badge"><i class="fas fa-clipboard-list"></i> Code Snippets</span>
+                <h1>Your Personal <span class="gradient-text">Code Library</span></h1>
+                <p>Browse, search, and save reusable code snippets across all languages</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Snippets Library -->
+    <section class="snippets-section">
+        <div class="container">
+            <div class="snippets-header">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <label for="snippetSearch"></label><input type="text" id="snippetSearch" placeholder="Search snippets by name, language, or tag...">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="javascript">JavaScript</button>
+                    <button class="filter-btn" data-filter="python">Python</button>
+                    <button class="filter-btn" data-filter="react">React</button>
+                    <button class="filter-btn" data-filter="node">Node.js</button>
+                    <button class="filter-btn" data-filter="css">CSS</button>
+                </div>
+                <button class="btn-primary" id="addSnippetBtn">
+                    <i class="fas fa-plus"></i> Add New Snippet
+                </button>
+            </div>
+
+            <div class="snippets-grid" id="snippetsGrid">
+                <!-- Snippet Cards will be dynamically generated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Snippet Modal -->
+    <div class="modal" id="snippetModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Snippet</h3>
+                <button class="modal-close" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="snippetForm">
+                    <div class="form-group">
+                        <label for="snippetTitle">Title *</label>
+                        <input type="text" id="snippetTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="snippetLanguage">Language *</label>
+                        <select id="snippetLanguage" required>
+                            <option value="javascript">JavaScript</option>
+                            <option value="python">Python</option>
+                            <option value="java">Java</option>
+                            <option value="cpp">C++</option>
+                            <option value="html">HTML</option>
+                            <option value="css">CSS</option>
+                            <option value="react">React</option>
+                            <option value="node">Node.js</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="snippetTags">Tags (comma separated)</label>
+                        <input type="text" id="snippetTags" placeholder="async, promise, fetch">
+                    </div>
+                    <div class="form-group">
+                        <label for="snippetDescription">Description</label>
+                        <textarea id="snippetDescription" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="snippetCode">Code *</label>
+                        <textarea id="snippetCode" rows="10" required></textarea>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn-outline" id="cancelSnippet">Cancel</button>
+                        <button type="submit" class="btn-primary">Save Snippet</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+   <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <!-- Company Info -->
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <i class="fas fa-code"></i>
+                    <span>CodeAssist AI</span>
+                </div>
+                <p>Empowering developers with AI-powered code intelligence. Write better code, faster.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Product Section -->
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
+                    <li><a href="api-reference.html">API Reference</a></li>
+                    <li><a href="changelog.html">Changelog</a></li>
+                </ul>
+            </div>
+
+            <!-- Resources Section -->
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="tutorials.html">Tutorials</a></li>
+                    <li><a href="status.html">Status</a></li>
+                    <li><a href="security.html">Security</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal Section -->
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                    <li><a href="roadmap.html">Roadmap</a></li>
+                    <li><a href="license.html">License</a></li>
+                </ul>
+            </div>
+
+            <!-- Company Section -->
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="press-kit.html">Press Kit</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 CodeAssist AI. All rights reserved.</p>
+            <p>Made with <i class="fas fa-heart"></i> by developers, for developers</p>
+        </div>
+    </div>
+</footer>
+
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/snippets.js"></script>
+    <script src="assets/js/theme-switcher.js"></script>
+</body>
+</html>

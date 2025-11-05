@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Code Editor - CodeAssist AI</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/dracula.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/clike/clike.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.css">
+</head>
+<body class="editor-page">
+    <!-- Navigation -->
+    <nav class="navbar navbar-dark">
+        <div class="container-fluid">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-code"></i>
+                    <span>CodeAssist AI</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="editor.html" class="active">Code Editor</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="documentation.html">Docs</a></li>
+                </ul>
+                <div class="editor-controls">
+                    <button class="btn-icon" id="saveCode" title="Save Code">
+                        <i class="fas fa-save"></i>
+                    </button>
+                    <button class="btn-icon" id="runCode" title="Run Code">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="btn-icon" id="shareCode" title="Share">
+                        <i class="fas fa-share-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Editor Container -->
+    <div class="editor-container">
+        <!-- Sidebar -->
+        <div class="editor-sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fas fa-folder-open"></i> Explorer</h3>
+            </div>
+            <div class="file-tree">
+                <div class="file-item active">
+                    <i class="fas fa-file-code"></i>
+                    <span>main.js</span>
+                </div>
+                <div class="file-item">
+                    <i class="fas fa-file-code"></i>
+                    <span>utils.js</span>
+                </div>
+                <div class="file-item">
+                    <i class="fas fa-file-code"></i>
+                    <span>app.py</span>
+                </div>
+                <div class="file-item">
+                    <i class="fas fa-file-code"></i>
+                    <span>index.html</span>
+                </div>
+                <div class="file-item">
+                    <i class="fas fa-file-code"></i>
+                    <span>style.css</span>
+                </div>
+            </div>
+            <div class="sidebar-section">
+                <h4><i class="fas fa-lightbulb"></i> AI Insights</h4>
+                <div class="insight-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Code quality: Good</span>
+                </div>
+                <div class="insight-item">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>2 potential issues</span>
+                </div>
+                <div class="insight-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Performance: Optimal</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Editor Area -->
+        <div class="editor-main">
+            <div class="editor-toolbar">
+                <div class="toolbar-left">
+                    <label for="languageSelect"></label><select id="languageSelect" class="language-select">
+                        <option value="javascript">JavaScript</option>
+                        <option value="python">Python</option>
+                        <option value="java">Java</option>
+                        <option value="cpp">C++</option>
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                    </select>
+                    <button class="btn-icon" id="formatCode" title="Format Code">
+                        <i class="fas fa-align-left"></i>
+                    </button>
+                    <button class="btn-icon" id="aiOptimize" title="AI Optimize">
+                        <i class="fas fa-magic"></i>
+                    </button>
+                </div>
+                <div class="toolbar-right">
+                    <span class="ai-status">
+                        <i class="fas fa-circle ai-active"></i>
+                        AI Active
+                    </span>
+                    <button class="btn-icon" id="settingsBtn" title="Settings">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="editor-workspace">
+                <label for="codeEditor"></label><textarea id="codeEditor"></textarea>
+                <div class="ai-suggestion-popup" id="aiSuggestion">
+                    <div class="suggestion-header">
+                        <i class="fas fa-robot"></i>
+                        <span>AI Suggestion</span>
+                    </div>
+                    <div class="suggestion-content" id="suggestionText"></div>
+                    <div class="suggestion-actions">
+                        <button class="btn-accept" id="acceptSuggestion">
+                            <i class="fas fa-check"></i> Accept (Tab)
+                        </button>
+                        <button class="btn-reject" id="rejectSuggestion">
+                            <i class="fas fa-times"></i> Reject (Esc)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="editor-footer">
+                <div class="footer-info">
+                    <span><i class="fas fa-code"></i> UTF-8</span>
+                    <span><i class="fas fa-font"></i> Spaces: 2</span>
+                    <span id="cursorPosition">Ln 1, Col 1</span>
+                    <span id="wordCount">0 words</span>
+                </div>
+                <div class="footer-actions">
+                    <button class="btn-small" id="clearEditor">
+                        <i class="fas fa-trash"></i> Clear
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="editor-panel">
+            <div class="panel-tabs">
+                <button class="panel-tab active" data-tab="output">
+                    <i class="fas fa-terminal"></i> Output
+                </button>
+                <button class="panel-tab" data-tab="suggestions">
+                    <i class="fas fa-lightbulb"></i> Suggestions
+                </button>
+                <button class="panel-tab" data-tab="console">
+                    <i class="fas fa-bug"></i> Console
+                </button>
+            </div>
+
+            <div class="panel-content">
+                <div class="tab-panel active" id="output">
+                    <div class="output-console">
+                        <div class="console-line">
+                            <span class="console-prompt">$</span>
+                            <span>Ready to run code...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-panel" id="suggestions">
+                    <div class="suggestions-list">
+                        <div class="suggestion-card">
+                            <div class="suggestion-icon">
+                                <i class="fas fa-magic"></i>
+                            </div>
+                            <div class="suggestion-details">
+                                <h4>Add Error Handling</h4>
+                                <p>Consider adding try-catch blocks to handle potential errors</p>
+                                <button class="btn-small btn-primary">Apply</button>
+                            </div>
+                        </div>
+                        <div class="suggestion-card">
+                            <div class="suggestion-icon">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            <div class="suggestion-details">
+                                <h4>Optimize Loop</h4>
+                                <p>Use Array.map() instead of for loop for better performance</p>
+                                <button class="btn-small btn-primary">Apply</button>
+                            </div>
+                        </div>
+                        <div class="suggestion-card">
+                            <div class="suggestion-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="suggestion-details">
+                                <h4>Input Validation</h4>
+                                <p>Add input validation to prevent security vulnerabilities</p>
+                                <button class="btn-small btn-primary">Apply</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-panel" id="console">
+                    <div class="console-output">
+                        <div class="console-line success">
+                            <span class="console-time">[12:30:45]</span>
+                            <span>Compilation successful</span>
+                        </div>
+                        <div class="console-line info">
+                            <span class="console-time">[12:30:46]</span>
+                            <span>Code analysis complete</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget" id="chatbotWidget">
+        <div class="chatbot-header">
+            <div class="chatbot-title">
+                <i class="fas fa-robot"></i>
+                <span>AI Assistant</span>
+            </div>
+            <button class="chatbot-close" id="closeChatbot">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="bot-message">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>Hi! I can help you with coding questions, debugging, or explain any concept. What would you like to know?</p>
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <label for="chatbotInput"></label><input type="text" id="chatbotInput" placeholder="Ask about your code...">
+            <button id="sendMessage">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <button class="chatbot-button" id="openChatbot">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/editor.js"></script>
+    <script src="assets/js/ai-engine.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+</body>
+</html>

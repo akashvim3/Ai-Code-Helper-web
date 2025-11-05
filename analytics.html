@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - CodeAssist AI</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-dark">
+        <div class="container-fluid">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-code"></i>
+                    <span>CodeAssist AI</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="editor.html">Editor</a></li>
+                    <li><a href="snippets.html">Snippets</a></li>
+                    <li><a href="analytics.html" class="active">Analytics</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Analytics Content -->
+    <div class="analytics-container">
+        <div class="container">
+            <div class="analytics-header">
+                <h1>Analytics & Insights</h1>
+                <div class="date-range-selector">
+                    <button class="date-btn active">7 Days</button>
+                    <button class="date-btn">30 Days</button>
+                    <button class="date-btn">90 Days</button>
+                    <button class="date-btn">Custom</button>
+                </div>
+            </div>
+
+            <!-- KPI Cards -->
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <i class="fas fa-code"></i>
+                        <h3>Total Suggestions</h3>
+                    </div>
+                    <div class="kpi-value">8,547</div>
+                    <div class="kpi-change positive">
+                        <i class="fas fa-arrow-up"></i> 23% vs last period
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Acceptance Rate</h3>
+                    </div>
+                    <div class="kpi-value">87%</div>
+                    <div class="kpi-change positive">
+                        <i class="fas fa-arrow-up"></i> 5% vs last period
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <i class="fas fa-clock"></i>
+                        <h3>Time Saved</h3>
+                    </div>
+                    <div class="kpi-value">42.3h</div>
+                    <div class="kpi-change positive">
+                        <i class="fas fa-arrow-up"></i> 18% vs last period
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Productivity</h3>
+                    </div>
+                    <div class="kpi-value">+312%</div>
+                    <div class="kpi-change positive">
+                        <i class="fas fa-arrow-up"></i> 45% vs last period
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="charts-grid">
+                <div class="chart-container">
+                    <h3>AI Suggestions Over Time</h3>
+                    <canvas id="suggestionsChart"></canvas>
+                </div>
+
+                <div class="chart-container">
+                    <h3>Language Distribution</h3>
+                    <canvas id="languageChart"></canvas>
+                </div>
+
+                <div class="chart-container">
+                    <h3>Coding Activity</h3>
+                    <canvas id="activityChart"></canvas>
+                </div>
+
+                <div class="chart-container">
+                    <h3>Error Detection</h3>
+                    <canvas id="errorsChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Insights -->
+            <div class="insights-section">
+                <h2>AI-Powered Insights</h2>
+                <div class="insights-grid">
+                    <div class="insight-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <h4>Peak Productivity Hours</h4>
+                        <p>You're most productive between 9 AM - 12 PM. Consider scheduling complex tasks during this time.</p>
+                    </div>
+                    <div class="insight-card">
+                        <i class="fas fa-trophy"></i>
+                        <h4>Top Performance</h4>
+                        <p>Your JavaScript code quality has improved by 34% this month. Keep up the great work!</p>
+                    </div>
+                    <div class="insight-card">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h4>Areas to Improve</h4>
+                        <p>Error handling could be improved. Consider adding more try-catch blocks in async functions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <!-- Company Info -->
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <i class="fas fa-code"></i>
+                    <span>CodeAssist AI</span>
+                </div>
+                <p>Empowering developers with AI-powered code intelligence. Write better code, faster.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Product Section -->
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
+                    <li><a href="api-reference.html">API Reference</a></li>
+                    <li><a href="changelog.html">Changelog</a></li>
+                </ul>
+            </div>
+
+            <!-- Resources Section -->
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="tutorials.html">Tutorials</a></li>
+                    <li><a href="status.html">Status</a></li>
+                    <li><a href="security.html">Security</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal Section -->
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                    <li><a href="roadmap.html">Roadmap</a></li>
+                    <li><a href="license.html">License</a></li>
+                </ul>
+            </div>
+
+            <!-- Company Section -->
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="press-kit.html">Press Kit</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 CodeAssist AI. All rights reserved.</p>
+            <p>Made with <i class="fas fa-heart"></i> by developers, for developers</p>
+        </div>
+    </div>
+</footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/analytics.js"></script>
+    <script src="assets/js/theme-switcher.js"></script>
+</body>
+</html>
