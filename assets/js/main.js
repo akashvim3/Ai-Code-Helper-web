@@ -257,7 +257,7 @@ function validateField(field) {
     }
     // Email validation
     else if (type === 'email' && value) {
-        const emailRegex = /^[^s@]+@[^s@]+.[^s@]+$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(value)) {
             isValid = false;
             errorMessage = 'Please enter a valid email';
@@ -265,7 +265,7 @@ function validateField(field) {
     }
     // Phone validation
     else if (type === 'tel' && value) {
-        const phoneRegex = /^[ds-+()]+$/;
+        const phoneRegex = /^[\d\s-+()]+$/;
         if (!phoneRegex.test(value)) {
             isValid = false;
             errorMessage = 'Please enter a valid phone number';
@@ -425,13 +425,74 @@ function updateUIForLoggedInUser() {
             <button class="theme-toggle" id="themeToggle">
                 <i class="fas fa-moon"></i>
             </button>
-            <div class="user-menu">
+            <div class="user-menu" id="userMenu">
                 <img src="${currentUser.avatar}" alt="User" class="user-avatar">
                 <span>${currentUser.name}</span>
                 <i class="fas fa-chevron-down"></i>
             </div>
         `;
+        
+        // Add click event to user menu
+        document.getElementById('userMenu').addEventListener('click', toggleUserDropdown);
     }
+}
+
+function toggleUserDropdown() {
+    // Create dropdown if it doesn't exist
+    let dropdown = document.querySelector('.user-dropdown');
+    if (dropdown) {
+        dropdown.remove();
+        return;
+    }
+    
+    dropdown = document.createElement('div');
+    dropdown.className = 'user-dropdown';
+    dropdown.innerHTML = `
+        <div class="dropdown-item" onclick="handleUserProfile()">
+            <i class="fas fa-user"></i> Profile
+        </div>
+        <div class="dropdown-item" onclick="handleSettings()">
+            <i class="fas fa-cog"></i> Settings
+        </div>
+        <div class="dropdown-item" onclick="handleLogout()">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </div>
+    `;
+    
+    document.getElementById('userMenu').appendChild(dropdown);
+}
+
+function handleLogout() {
+    // Clear user data
+    localStorage.removeItem('user_data');
+    currentUser = null;
+    
+    // Update UI
+    const navButtons = document.querySelector('.nav-buttons');
+    if (navButtons) {
+        navButtons.innerHTML = `
+            <button class="btn-secondary" onclick="window.location.href='login.html'">Sign In</button>
+            <button class="btn-primary" onclick="window.location.href='signup.html'">Get Started</button>
+        `;
+    }
+    
+    // Remove dropdown if exists
+    const dropdown = document.querySelector('.user-dropdown');
+    if (dropdown) {
+        dropdown.remove();
+    }
+    
+    showNotification('Successfully logged out!', 'success');
+}
+
+function handleUserProfile() {
+    // Navigate to profile page (or dashboard)
+    window.location.href = 'dashboard.html'; // Placeholder
+}
+
+function handleSettings() {
+    // Navigate to settings page
+    window.location.href = 'settings.html';
 }
 
 // ============================================

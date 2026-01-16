@@ -19,9 +19,24 @@ class Chatbot {
     }
 
     createChatbotWidget() {
-        // Check if chatbot already exists
-        if (document.getElementById('chatbotWidget')) return;
+        // Check if chatbot already exists in HTML
+        const existingWidget = document.getElementById('chatbotWidget');
+        if (existingWidget) {
+            // If exists, just add the quick actions to the initial message
+            const initialMessage = existingWidget.querySelector('.bot-message p');
+            if (initialMessage && !existingWidget.querySelector('.quick-actions')) {
+                const quickActionsHTML = `
+                    <div class="quick-actions">
+                        <button class="quick-action-btn">Getting Started</button>
+                        <button class="quick-action-btn">Pricing Info</button>
+                        <button class="quick-action-btn">Technical Support</button>
+                    </div>`;
+                initialMessage.insertAdjacentHTML('afterend', quickActionsHTML);
+            }
+            return;
+        }
 
+        // Create widget if it doesn't exist in HTML
         const chatbotHTML = `
             <!-- Chatbot Button -->
             <button class="chatbot-button" id="chatbotButton">
@@ -91,8 +106,8 @@ class Chatbot {
     }
 
     attachEventListeners() {
-        // Open chatbot
-        const chatbotButton = document.getElementById('chatbotButton');
+        // Open chatbot - handle both static HTML and dynamic button
+        const chatbotButton = document.getElementById('chatbotButton') || document.querySelector('#openChatbot');
         if (chatbotButton) {
             chatbotButton.addEventListener('click', () => this.toggleChatbot());
         }
@@ -109,8 +124,8 @@ class Chatbot {
             clearBtn.addEventListener('click', () => this.clearChat());
         }
 
-        // Send message
-        const sendBtn = document.getElementById('sendMessage');
+        // Send message - handle both static and dynamic buttons
+        const sendBtn = document.getElementById('sendMessage') || document.querySelector('#sendMessage');
         const input = document.getElementById('chatbotInput');
 
         if (sendBtn) {
@@ -137,13 +152,15 @@ class Chatbot {
 
     toggleChatbot() {
         const widget = document.getElementById('chatbotWidget');
-        const button = document.getElementById('chatbotButton');
+        const button = document.getElementById('chatbotButton') || document.querySelector('#openChatbot');
 
         if (widget.classList.contains('active')) {
             this.closeChatbot();
         } else {
             widget.classList.add('active');
-            button.style.display = 'none';
+            if (button) {
+                button.style.display = 'none';
+            }
             this.isOpen = true;
 
             // Focus input
@@ -155,10 +172,12 @@ class Chatbot {
 
     closeChatbot() {
         const widget = document.getElementById('chatbotWidget');
-        const button = document.getElementById('chatbotButton');
+        const button = document.getElementById('chatbotButton') || document.querySelector('#openChatbot');
 
         widget.classList.remove('active');
-        button.style.display = 'flex';
+        if (button) {
+            button.style.display = 'flex';
+        }
         this.isOpen = false;
     }
 

@@ -9,8 +9,8 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-dark">
-        <div class="container-fluid">
+    <nav class="navbar">
+        <div class="container">
             <div class="nav-wrapper">
                 <div class="logo">
                     <i class="fas fa-code"></i>
@@ -18,377 +18,283 @@
                 </div>
                 <ul class="nav-menu">
                     <li><a href="index.html">Home</a></li>
+                    <li><a href="editor.html">Code Editor</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="documentation.html">Docs</a></li>
                     <li><a href="dashboard.html" class="active">Dashboard</a></li>
-                    <li><a href="editor.html">Editor</a></li>
-                    <li><a href="snippets.html">Snippets</a></li>
-                    <li><a href="analytics.html">Analytics</a></li>
-                    <li><a href="settings.html">Settings</a></li>
                 </ul>
-                <div class="nav-buttons">
-                    <button class="theme-toggle" id="themeToggle">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                    <div class="user-menu">
-                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=6366f1&color=fff" alt="User" class="user-avatar">
-                        <span>Akash Vimal</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
+                <div class="nav-buttons" id="navButtons">
+                    <!-- This will be populated by JavaScript based on login status -->
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Dashboard Content -->
-    <div class="dashboard-container">
-        <!-- Sidebar -->
-        <aside class="dashboard-sidebar">
-            <div class="sidebar-section">
-                <h4><i class="fas fa-tachometer-alt"></i> Overview</h4>
-                <ul class="sidebar-menu">
-                    <li class="active"><a href="#"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#"><i class="fas fa-chart-line"></i> Statistics</a></li>
-                    <li><a href="#"><i class="fas fa-clock"></i> Recent Activity</a></li>
-                </ul>
-            </div>
-            <div class="sidebar-section">
-                <h4><i class="fas fa-folder"></i> Projects</h4>
-                <ul class="sidebar-menu">
-                    <li><a href="#"><i class="fas fa-project-diagram"></i> All Projects</a></li>
-                    <li><a href="#"><i class="fas fa-star"></i> Favorites</a></li>
-                    <li><a href="#"><i class="fas fa-users"></i> Shared</a></li>
-                </ul>
-            </div>
-            <div class="sidebar-section">
-                <h4><i class="fas fa-cog"></i> Settings</h4>
-                <ul class="sidebar-menu">
-                    <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
-                    <li><a href="#"><i class="fas fa-palette"></i> Preferences</a></li>
-                    <li><a href="#"><i class="fas fa-key"></i> API Keys</a></li>
-                </ul>
-            </div>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="dashboard-main">
+    <section class="dashboard-section">
+        <div class="container">
             <div class="dashboard-header">
-                <h1>Welcome back, John! 👋</h1>
-                <p>Here's what's happening with your projects today</p>
+                <h1>Welcome back, <span id="userName">User</span>!</h1>
+                <p>Here's what's happening with your CodeAssist AI account today.</p>
             </div>
 
-            <!-- Stats Grid -->
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                        <i class="fas fa-code"></i>
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Activity Overview</h3>
                     </div>
-                    <div class="stat-details">
-                        <h3>1,247</h3>
-                        <p>AI Suggestions</p>
-                        <span class="stat-change positive">+12% from last week</span>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                        <i class="fas fa-file-code"></i>
-                    </div>
-                    <div class="stat-details">
-                        <h3>34</h3>
-                        <p>Projects</p>
-                        <span class="stat-change positive">+3 this month</span>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="stat-details">
-                        <h3>127h</h3>
-                        <p>Coding Time</p>
-                        <span class="stat-change positive">+8% this month</span>
+                    <div class="card-content">
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-value">142</div>
+                                <div class="stat-label">Lines of Code</div>
+                                <div class="stat-change positive">+12% from yesterday</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">24</div>
+                                <div class="stat-label">AI Suggestions Used</div>
+                                <div class="stat-change positive">+5% from yesterday</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">89%</div>
+                                <div class="stat-label">Accuracy Rate</div>
+                                <div class="stat-change positive">+3% from yesterday</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div class="stat-details">
-                        <h3>95%</h3>
-                        <p>Accuracy Rate</p>
-                        <span class="stat-change neutral">Stable</span>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Recent Projects -->
-            <div class="dashboard-section">
-                <div class="section-title">
-                    <h2>Recent Projects</h2>
-                    <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-icon">
-                                <i class="fab fa-react"></i>
-                            </div>
-                            <div class="project-menu">
-                                <i class="fas fa-ellipsis-h"></i>
-                            </div>
-                        </div>
-                        <h3>E-Commerce Dashboard</h3>
-                        <p>React-based admin dashboard with real-time analytics</p>
-                        <div class="project-meta">
-                            <span class="project-language"><i class="fab fa-react"></i> React</span>
-                            <span class="project-time"><i class="fas fa-clock"></i> 2 hours ago</span>
-                        </div>
-                        <div class="project-progress">
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 75%;"></div>
-                            </div>
-                            <span>75% Complete</span>
-                        </div>
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-history"></i>
+                        <h3>Recent Activity</h3>
                     </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-icon" style="background: #f7df1e;">
-                                <i class="fab fa-node-js"></i>
+                    <div class="card-content">
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <i class="fas fa-lightbulb activity-icon suggestion"></i>
+                                <div class="activity-details">
+                                    <h4>AI Suggestion Accepted</h4>
+                                    <p>Added error handling to your function</p>
+                                    <span class="activity-time">2 minutes ago</span>
+                                </div>
                             </div>
-                            <div class="project-menu">
-                                <i class="fas fa-ellipsis-h"></i>
+                            <div class="activity-item">
+                                <i class="fas fa-file-code activity-icon code"></i>
+                                <div class="activity-details">
+                                    <h4>New File Created</h4>
+                                    <p>Created utils.js in your project</p>
+                                    <span class="activity-time">15 minutes ago</span>
+                                </div>
                             </div>
-                        </div>
-                        <h3>REST API Server</h3>
-                        <p>Node.js backend with Express and MongoDB</p>
-                        <div class="project-meta">
-                            <span class="project-language"><i class="fab fa-node-js"></i> Node.js</span>
-                            <span class="project-time"><i class="fas fa-clock"></i> 5 hours ago</span>
-                        </div>
-                        <div class="project-progress">
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 60%; background: #f7df1e;"></div>
+                            <div class="activity-item">
+                                <i class="fas fa-bug activity-icon bug"></i>
+                                <div class="activity-details">
+                                    <h4>Potential Issue Found</h4>
+                                    <p>Detected possible memory leak in main.js</p>
+                                    <span class="activity-time">1 hour ago</span>
+                                </div>
                             </div>
-                            <span>60% Complete</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-icon" style="background: #3776ab;">
-                                <i class="fab fa-python"></i>
-                            </div>
-                            <div class="project-menu">
-                                <i class="fas fa-ellipsis-h"></i>
-                            </div>
-                        </div>
-                        <h3>ML Model Trainer</h3>
-                        <p>Machine learning pipeline with TensorFlow</p>
-                        <div class="project-meta">
-                            <span class="project-language"><i class="fab fa-python"></i> Python</span>
-                            <span class="project-time"><i class="fas fa-clock"></i> 1 day ago</span>
-                        </div>
-                        <div class="project-progress">
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 90%; background: #3776ab;"></div>
-                            </div>
-                            <span>90% Complete</span>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Activity Feed -->
-            <div class="dashboard-section">
-                <div class="section-title">
-                    <h2>Recent Activity</h2>
-                </div>
-                <div class="activity-feed">
-                    <div class="activity-item">
-                        <div class="activity-icon success">
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <div class="activity-content">
-                            <p><strong>Code suggestion accepted</strong></p>
-                            <span>Accepted AI suggestion in "E-Commerce Dashboard"</span>
-                            <span class="activity-time">2 minutes ago</span>
-                        </div>
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-rocket"></i>
+                        <h3>Quick Actions</h3>
                     </div>
-                    <div class="activity-item">
-                        <div class="activity-icon primary">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <div class="activity-content">
-                            <p><strong>New file created</strong></p>
-                            <span>Created "AuthService.js" in REST API Server</span>
-                            <span class="activity-time">1 hour ago</span>
-                        </div>
-                    </div>
-                    <div class="activity-item">
-                        <div class="activity-icon warning">
-                            <i class="fas fa-exclamation-triangle"></i>
-                        </div>
-                        <div class="activity-content">
-                            <p><strong>Error detected</strong></p>
-                            <span>Potential null pointer exception in ML Model Trainer</span>
-                            <span class="activity-time">3 hours ago</span>
-                        </div>
-                    </div>
-                    <div class="activity-item">
-                        <div class="activity-icon info">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <div class="activity-content">
-                            <p><strong>Optimization suggested</strong></p>
-                            <span>AI recommends using async/await in API routes</span>
-                            <span class="activity-time">5 hours ago</span>
+                    <div class="card-content">
+                        <div class="quick-actions-grid">
+                            <a href="editor.html" class="quick-action">
+                                <i class="fas fa-code"></i>
+                                <span>Open Editor</span>
+                            </a>
+                            <a href="snippets.html" class="quick-action">
+                                <i class="fas fa-copy"></i>
+                                <span>Code Snippets</span>
+                            </a>
+                            <a href="settings.html" class="quick-action">
+                                <i class="fas fa-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                            <a href="tutorials.html" class="quick-action">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Tutorials</span>
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </main>
 
-        <!-- Right Sidebar -->
-        <aside class="dashboard-right-sidebar">
-            <div class="widget">
-                <h3><i class="fas fa-trophy"></i> Achievements</h3>
-                <div class="achievements-grid">
-                    <div class="achievement unlocked">
-                        <i class="fas fa-fire"></i>
-                        <span>7 Day Streak</span>
-                    </div>
-                    <div class="achievement unlocked">
-                        <i class="fas fa-code"></i>
-                        <span>1000 Lines</span>
-                    </div>
-                    <div class="achievement locked">
+                <div class="dashboard-card">
+                    <div class="card-header">
                         <i class="fas fa-star"></i>
-                        <span>10 Projects</span>
+                        <h3>AI Insights</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="insight-item">
+                            <h4>Code Quality Score</h4>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 92%;"></div>
+                            </div>
+                            <span class="progress-label">92% - Excellent</span>
+                        </div>
+                        <div class="insight-item">
+                            <h4>Performance Optimization</h4>
+                            <p>Consider refactoring the data processing function for better performance.</p>
+                            <button class="btn-small btn-outline">Review Code</button>
+                        </div>
+                        <div class="insight-item">
+                            <h4>Learning Recommendation</h4>
+                            <p>Based on your recent code, we recommend learning about async/await patterns.</p>
+                            <button class="btn-small btn-primary">Learn More</button>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="widget">
-                <h3><i class="fas fa-chart-pie"></i> Language Usage</h3>
-                <div class="language-stats">
-                    <div class="language-bar">
-                        <span>JavaScript</span>
-                        <div class="bar">
-                            <div class="bar-fill" style="width: 45%; background: #f7df1e;"></div>
-                        </div>
-                        <span>45%</span>
-                    </div>
-                    <div class="language-bar">
-                        <span>Python</span>
-                        <div class="bar">
-                            <div class="bar-fill" style="width: 30%; background: #3776ab;"></div>
-                        </div>
-                        <span>30%</span>
-                    </div>
-                    <div class="language-bar">
-                        <span>React</span>
-                        <div class="bar">
-                            <div class="bar-fill" style="width: 25%; background: #61dafb;"></div>
-                        </div>
-                        <span>25%</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="widget">
-                <h3><i class="fas fa-bell"></i> Notifications</h3>
-                <div class="notifications">
-                    <div class="notification">
-                        <i class="fas fa-info-circle"></i>
-                        <p>New AI model update available</p>
-                    </div>
-                    <div class="notification">
-                        <i class="fas fa-gift"></i>
-                        <p>Upgrade to Pro and save 20%</p>
-                    </div>
-                </div>
-            </div>
-        </aside>
-    </div>
-
+    <!-- Footer -->
     <footer class="footer">
-    <div class="container">
-        <div class="footer-content">
-            <!-- Company Info -->
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <i class="fas fa-code"></i>
-                    <span>CodeAssist AI</span>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Company Info -->
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-code"></i>
+                        <span>CodeAssist AI</span>
+                    </div>
+                    <p>Empowering developers with AI-powered code intelligence. Write better code, faster.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                <p>Empowering developers with AI-powered code intelligence. Write better code, faster.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+
+                <!-- Product Section -->
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="api-reference.html">API Reference</a></li>
+                        <li><a href="changelog.html">Changelog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources Section -->
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="support.html">Support</a></li>
+                        <li><a href="tutorials.html">Tutorials</a></li>
+                        <li><a href="status.html">Status</a></li>
+                        <li><a href="security.html">Security</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Section -->
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                        <li><a href="roadmap.html">Roadmap</a></li>
+                        <li><a href="license.html">License</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Section -->
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="press-kit.html">Press Kit</a></li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- Product Section -->
-            <div class="footer-section">
-                <h4>Product</h4>
-                <ul>
-                    <li><a href="features.html">Features</a></li>
-                    <li><a href="pricing.html">Pricing</a></li>
-                    <li><a href="documentation.html">Documentation</a></li>
-                    <li><a href="api-reference.html">API Reference</a></li>
-                    <li><a href="changelog.html">Changelog</a></li>
-                </ul>
-            </div>
-
-            <!-- Resources Section -->
-            <div class="footer-section">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="community.html">Community</a></li>
-                    <li><a href="support.html">Support</a></li>
-                    <li><a href="tutorials.html">Tutorials</a></li>
-                    <li><a href="status.html">Status</a></li>
-                    <li><a href="security.html">Security</a></li>
-                </ul>
-            </div>
-
-            <!-- Legal Section -->
-            <div class="footer-section">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="terms-of-service.html">Terms of Service</a></li>
-                    <li><a href="cookie-policy.html">Cookie Policy</a></li>
-                    <li><a href="roadmap.html">Roadmap</a></li>
-                    <li><a href="license.html">License</a></li>
-                </ul>
-            </div>
-
-            <!-- Company Section -->
-            <div class="footer-section">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="careers.html">Careers</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="press-kit.html">Press Kit</a></li>
-                </ul>
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 CodeAssist AI. All rights reserved.</p>
+                <p>Made with <i class="fas fa-heart"></i> by developers, for developers</p>
             </div>
         </div>
+    </footer>
 
-        <!-- Footer Bottom -->
-        <div class="footer-bottom">
-            <p>&copy; 2025 CodeAssist AI. All rights reserved.</p>
-            <p>Made with <i class="fas fa-heart"></i> by developers, for developers</p>
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget" id="chatbotWidget">
+        <div class="chatbot-header">
+            <div class="chatbot-title">
+                <i class="fas fa-robot"></i>
+                <span>AI Assistant</span>
+            </div>
+            <button class="chatbot-close" id="closeChatbot">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="bot-message">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>Welcome to your dashboard! How can I assist you with your coding today?</p>
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <label for="chatbotInput"></label><input type="text" id="chatbotInput" placeholder="Ask me anything...">
+            <button id="sendMessage">
+                <i class="fas fa-paper-plane"></i>
+            </button>
         </div>
     </div>
-</footer>
 
+    <button class="chatbot-button" id="openChatbot">
+        <i class="fas fa-comments"></i>
+    </button>
 
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/dashboard.js"></script>
-    <script src="assets/js/theme-switcher.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+    <script>
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize user session to update nav
+            initUserSession();
+            
+            // Update welcome message with user name
+            const userData = localStorage.getItem('user_data');
+            if (userData) {
+                const user = JSON.parse(userData);
+                document.getElementById('userName').textContent = user.name.split(' ')[0];
+            }
+        });
+        
+        // Function to handle logout (if called from dropdown)
+        function handleLogout() {
+            // Clear user data
+            localStorage.removeItem('user_data');
+            
+            // Redirect to login page
+            window.location.href = 'login.html';
+        }
+    </script>
 </body>
 </html>
