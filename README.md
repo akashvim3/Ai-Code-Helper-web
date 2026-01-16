@@ -4,6 +4,10 @@
 
 A powerful GitHub Copilot clone featuring real-time AI-powered code completion, intelligent suggestions, and a built-in chatbot assistant.
 
+## 🎯 Live Demo
+
+👉 [View Live Demo](https://your-demo-link-here.com)
+
 ## 🚀 Features
 
 - **Real-Time Code Completion**: Get intelligent code suggestions as you type
@@ -27,13 +31,17 @@ A powerful GitHub Copilot clone featuring real-time AI-powered code completion, 
 1. **Clone the repository**
 
 git clone https://github.com/akashvim3/codeassist-ai.git
+
 cd codeassist-ai
 
 1. **Open the project**
 
 Simply open index.html in your browser
+
 Or use a local server
+
 python -m http.server 8000
+
 Then visit http://localhost:8000
 
 1. **Start coding!**
