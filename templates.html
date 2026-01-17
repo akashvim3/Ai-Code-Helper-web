@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Templates - CodeAssist AI</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-code"></i>
+                    <span>CodeAssist AI</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="editor.html">Code Editor</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="documentation.html">Docs</a></li>
+                    <li><a href="templates.html" class="active">Templates</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+                <div class="nav-buttons" id="navButtons">
+                    <!-- This will be populated by JavaScript based on login status -->
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Templates Section -->
+    <section class="templates-section">
+        <div class="container">
+            <div class="section-header">
+                <h1>Code Templates</h1>
+                <p>Ready-to-use templates to accelerate your development workflow</p>
+            </div>
+
+            <div class="templates-filters">
+                <div class="filter-group">
+                    <label for="languageFilter">Language:</label>
+                    <select id="languageFilter">
+                        <option value="all">All Languages</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="python">Python</option>
+                        <option value="java">Java</option>
+                        <option value="cpp">C++</option>
+                        <option value="html">HTML/CSS</option>
+                        <option value="react">React</option>
+                        <option value="vue">Vue</option>
+                        <option value="angular">Angular</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="categoryFilter">Category:</label>
+                    <select id="categoryFilter">
+                        <option value="all">All Categories</option>
+                        <option value="web">Web Development</option>
+                        <option value="mobile">Mobile</option>
+                        <option value="api">API</option>
+                        <option value="database">Database</option>
+                        <option value="testing">Testing</option>
+                        <option value="devops">DevOps</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="templates-grid" id="templatesGrid">
+                <!-- Template Card 1 -->
+                <div class="template-card" data-language="javascript" data-category="web">
+                    <div class="template-header">
+                        <div class="template-badge js-badge">JS</div>
+                        <div class="template-actions">
+                            <button class="btn-icon" title="Preview">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn-icon" title="Copy to Clipboard">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <h3>Express.js API Server</h3>
+                    <p>Minimal Express.js server with routing and middleware setup</p>
+                    <div class="template-tags">
+                        <span class="tag">Express</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">API</span>
+                    </div>
+                    <div class="template-stats">
+                        <span><i class="fas fa-download"></i> 1,243</span>
+                        <span><i class="fas fa-star"></i> 4.8</span>
+                    </div>
+                    <button class="btn-primary btn-block template-use-btn">Use Template</button>
+                </div>
+
+                <!-- Template Card 2 -->
+                <div class="template-card" data-language="python" data-category="web">
+                    <div class="template-header">
+                        <div class="template-badge py-badge">PY</div>
+                        <div class="template-actions">
+                            <button class="btn-icon" title="Preview">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn-icon" title="Copy to Clipboard">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <h3>Django REST API</h3>
+                    <p>Full-featured Django REST framework API with authentication</p>
+                    <div class="template-tags">
+                        <span class="tag">Django</span>
+                        <span class="tag">REST</span>
+                        <span class="tag">Authentication</span>
+                    </div>
+                    <div class="template-stats">
+                        <span><i class="fas fa-download"></i> 987</span>
+                        <span><i class="fas fa-star"></i> 4.7</span>
+                    </div>
+                    <button class="btn-primary btn-block template-use-btn">Use Template</button>
+                </div>
+
+                <!-- Template Card 3 -->
+                <div class="template-card" data-language="react" data-category="web">
+                    <div class="template-header">
+                        <div class="template-badge react-badge">REACT</div>
+                        <div class="template-actions">
+                            <button class="btn-icon" title="Preview">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn-icon" title="Copy to Clipboard">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <h3>React Component</h3>
+                    <p>Functional component with props, state, and lifecycle hooks</p>
+                    <div class="template-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Hooks</span>
+                        <span class="tag">Component</span>
+                    </div>
+                    <div class="template-stats">
+                        <span><i class="fas fa-download"></i> 2,356</span>
+                        <span><i class="fas fa-star"></i> 4.9</span>
+                    </div>
+                    <button class="btn-primary btn-block template-use-btn">Use Template</button>
+                </div>
+
+                <!-- Template Card 4 -->
+                <div class="template-card" data-language="html" data-category="web">
+                    <div class="template-header">
+                        <div class="template-badge html-badge">HTML</div>
+                        <div class="template-actions">
+                            <button class="btn-icon" title="Preview">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn-icon" title="Copy to Clipboard">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <h3>Responsive Landing Page</h3>
+                    <p>Modern responsive landing page with CSS Grid and Flexbox</p>
+                    <div class="template-tags">
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                        <span class="tag">Responsive</span>
+                    </div>
+                    <div class="template-stats">
+                        <span><i class="fas fa-download"></i> 3,421</span>
+                        <span><i class="fas fa-star"></i> 4.8</span>
+                    </div>
+                    <button class="btn-primary btn-block template-use-btn">Use Template</button>
+                </div>
+
+                <!-- Template Card 5 -->
+                <div class="template-card" data-language="java" data-category="api">
+                    <div class="template-header">
+                        <div class="template-badge java-badge">JAVA</div>
+                        <div class="template-actions">
+                            <button class="btn-icon" title="Preview">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn-icon" title="Copy to Clipboard">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <h3>Spring Boot REST API</h3>
+                    <p>Spring Boot application with REST controllers and JPA</p>
+                    <div class="template-tags">
+                        <span class="tag">Spring</span>
+                        <span class="tag">Boot</span>
+                        <span class="tag">JPA</span>
+                    </div>
+                    <div class="template-stats">
+                        <span><i class="fas fa-download"></i> 1,678</span>
+                        <span><i class="fas fa-star"></i> 4.6</span>
+                    </div>
+                    <button class="btn-primary btn-block template-use-btn">Use Template</button>
+                </div>
+
+                <!-- Template Card 6 -->
+                <div class="template-card" data-language="cpp" data-category="devops">
+                    <div class="template-header">
+                        <div class="template-badge cpp-badge">C++</div>
+                        <div class="template-actions">
+                            <button class="btn-icon" title="Preview">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn-icon" title="Copy to Clipboard">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <h3>Data Structure Template</h3>
+                    <p>Template for common data structures with algorithms</p>
+                    <div class="template-tags">
+                        <span class="tag">STL</span>
+                        <span class="tag">Algorithms</span>
+                        <span class="tag">Competitive</span>
+                    </div>
+                    <div class="template-stats">
+                        <span><i class="fas fa-download"></i> 892</span>
+                        <span><i class="fas fa-star"></i> 4.5</span>
+                    </div>
+                    <button class="btn-primary btn-block template-use-btn">Use Template</button>
+                </div>
+            </div>
+
+            <div class="templates-pagination">
+                <button class="btn-outline" id="prevPage">
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <span class="page-info">Page <span id="currentPage">1</span> of <span id="totalPages">3</span></span>
+                <button class="btn-outline" id="nextPage">
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Template Preview Modal -->
+    <div class="modal" id="previewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Template Preview</h3>
+                <button class="modal-close" id="closePreview">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="code-preview">
+                    <div class="window-header">
+                        <div class="window-buttons">
+                            <span class="btn-close"></span>
+                            <span class="btn-minimize"></span>
+                            <span class="btn-maximize"></span>
+                        </div>
+                        <span class="window-title" id="previewFileName">template.js</span>
+                    </div>
+                    <div class="code-content">
+                        <pre><code id="previewCode">// Template code will be shown here</code></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="copyCodeBtn">
+                    <i class="fas fa-copy"></i> Copy Code
+                </button>
+                <button class="btn-primary" id="useTemplateBtn">
+                    <i class="fas fa-download"></i> Use Template
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Company Info -->
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-code"></i>
+                        <span>CodeAssist AI</span>
+                    </div>
+                    <p>Empowering developers with AI-powered code intelligence. Write better code, faster.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Product Section -->
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="api-reference.html">API Reference</a></li>
+                        <li><a href="changelog.html">Changelog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources Section -->
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="support.html">Support</a></li>
+                        <li><a href="tutorials.html">Tutorials</a></li>
+                        <li><a href="status.html">Status</a></li>
+                        <li><a href="security.html">Security</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Section -->
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                        <li><a href="roadmap.html">Roadmap</a></li>
+                        <li><a href="license.html">License</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Section -->
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="press-kit.html">Press Kit</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 CodeAssist AI. All rights reserved.</p>
+                <p>Made with <i class="fas fa-heart"></i> by developers, for developers</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget" id="chatbotWidget">
+        <div class="chatbot-header">
+            <div class="chatbot-title">
+                <i class="fas fa-robot"></i>
+                <span>AI Assistant</span>
+            </div>
+            <button class="chatbot-close" id="closeChatbot">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="bot-message">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>Hello! Need help with code templates? I can help you find the perfect template for your project.</p>
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Ask me anything...">
+            <button id="sendMessage">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <button class="chatbot-button" id="openChatbot">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+    <script>
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize user session to update nav
+            initUserSession();
+            
+            // Set up template filtering
+            setupTemplateFiltering();
+            
+            // Set up modal functionality
+            setupModalFunctionality();
+            
+            // Set up pagination
+            setupPagination();
+        });
+
+        function setupTemplateFiltering() {
+            const languageFilter = document.getElementById('languageFilter');
+            const categoryFilter = document.getElementById('categoryFilter');
+            const templatesGrid = document.getElementById('templatesGrid');
+
+            // Event listeners for filters
+            languageFilter.addEventListener('change', filterTemplates);
+            categoryFilter.addEventListener('change', filterTemplates);
+
+            function filterTemplates() {
+                const languageValue = languageFilter.value.toLowerCase();
+                const categoryValue = categoryFilter.value.toLowerCase();
+                
+                const templateCards = document.querySelectorAll('.template-card');
+                
+                templateCards.forEach(card => {
+                    const cardLanguage = card.getAttribute('data-language').toLowerCase();
+                    const cardCategory = card.getAttribute('data-category').toLowerCase();
+                    
+                    const languageMatch = languageValue === 'all' || cardLanguage.includes(languageValue);
+                    const categoryMatch = categoryValue === 'all' || cardCategory.includes(categoryValue);
+                    
+                    if (languageMatch && categoryMatch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+        }
+
+        function setupModalFunctionality() {
+            const previewModal = document.getElementById('previewModal');
+            const closePreview = document.getElementById('closePreview');
+            const copyCodeBtn = document.getElementById('copyCodeBtn');
+            const useTemplateBtn = document.getElementById('useTemplateBtn');
+            
+            // Sample template code for preview
+            const sampleCodes = {
+                'express': `const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Middleware
+app.use(express.json());
+
+// Routes
+app.get('/', (req, res) => {
+  res.json({ message: 'Hello World!' });
+});
+
+app.listen(PORT, () => {
+  console.log(\`Server running on port \${PORT}\`);
+});`,
+                'django': `from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),
+    path('', include('frontend.urls')),
+]`,
+                'react': `import React, { useState, useEffect } from 'react';
+
+const MyComponent = ({ title }) => {
+  const [count, setCount] = useState(0);
+  
+  useEffect(() => {
+    document.title = \`Count: \${count}\`;
+  }, [count]);
+  
+  return (
+    <div>
+      <h1>{title}</h1>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+};
+
+export default MyComponent;`
+            };
+
+            // Attach event to all "Use Template" buttons
+            document.querySelectorAll('.template-use-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const card = this.closest('.template-card');
+                    const title = card.querySelector('h3').textContent;
+                    
+                    // Show modal with preview
+                    document.getElementById('previewFileName').textContent = 
+                        title.toLowerCase().replace(/\s+/g, '_') + '.js';
+                    
+                    // Set sample code based on template
+                    let code = '// Sample code for ' + title;
+                    if (title.includes('Express')) {
+                        code = sampleCodes.express;
+                    } else if (title.includes('Django')) {
+                        code = sampleCodes.django;
+                    } else if (title.includes('React')) {
+                        code = sampleCodes.react;
+                    }
+                    
+                    document.getElementById('previewCode').textContent = code;
+                    previewModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Close modal
+            closePreview.addEventListener('click', closeModal);
+            
+            // Close modal when clicking outside content
+            previewModal.addEventListener('click', function(e) {
+                if (e.target === previewModal) {
+                    closeModal();
+                }
+            });
+
+            function closeModal() {
+                previewModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            // Copy code functionality
+            copyCodeBtn.addEventListener('click', function() {
+                const code = document.getElementById('previewCode').textContent;
+                navigator.clipboard.writeText(code)
+                    .then(() => {
+                        showNotification('Code copied to clipboard!', 'success');
+                    })
+                    .catch(err => {
+                        showNotification('Failed to copy code', 'error');
+                    });
+            });
+
+            // Use template functionality
+            useTemplateBtn.addEventListener('click', function() {
+                showNotification('Template added to your project!', 'success');
+                closeModal();
+            });
+        }
+
+        function setupPagination() {
+            // Simple pagination setup
+            const prevPage = document.getElementById('prevPage');
+            const nextPage = document.getElementById('nextPage');
+            const currentPageSpan = document.getElementById('currentPage');
+            const totalPagesSpan = document.getElementById('totalPages');
+            
+            let currentPage = 1;
+            const totalPages = 3;
+            
+            totalPagesSpan.textContent = totalPages;
+            
+            prevPage.addEventListener('click', function() {
+                if (currentPage > 1) {
+                    currentPage--;
+                    currentPageSpan.textContent = currentPage;
+                    updateTemplateDisplay();
+                }
+            });
+            
+            nextPage.addEventListener('click', function() {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    currentPageSpan.textContent = currentPage;
+                    updateTemplateDisplay();
+                }
+            });
+            
+            function updateTemplateDisplay() {
+                // In a real app, this would load the appropriate page of templates
+                // For now, we'll just scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
